@@ -1,0 +1,270 @@
+/* Leonida Trophy Guide — a dusk-over-Vice-City look: deep violet nights,
+   neon pink and teal accents, warm sand for the grade badges. No artwork
+   from the game is used; every colour and shape is drawn here. */
+
+:root {
+  --ink: #f4efe8;
+  --muted: #b9b0c4;
+  --bg: #171226;
+  --panel: #221a38;
+  --panel-2: #2b2144;
+  --line: #453a63;
+  --accent: #ff5e8a;
+  --accent-2: #2dd4bf;
+  --gold: #f5b942;
+  --silver: #c8ccd4;
+  --bronze: #d08a4e;
+  --platinum: #7fe3f0;
+  --danger: #ffb020;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.hero {
+  padding: 28px 24px 20px;
+  background: linear-gradient(135deg, #2a1745 0%, #57203f 55%, #173f45 100%);
+  border-bottom: 3px solid var(--accent);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--accent-2);
+}
+
+h1 { margin: 0 0 8px; font-size: 38px; line-height: 1.1; }
+h2 { font-size: 24px; margin: 24px 0 8px; }
+h3 { font-size: 18px; margin: 0 0 6px; }
+.lede { max-width: 720px; margin: 0 0 16px; font-size: 17px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+.progress { max-width: 720px; }
+.progress-bar {
+  height: 12px;
+  background: #0f0b1c;
+  border-radius: 6px;
+  overflow: hidden;
+}
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  transition: width 0.3s;
+}
+#progress-text { font-weight: 700; margin: 8px 0 2px; }
+#grade-counts { margin: 0; }
+
+.save-note {
+  max-width: 720px;
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  background: rgba(255, 176, 32, 0.14);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 14px 24px 0;
+  flex-wrap: wrap;
+}
+.tab {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 24px;
+  font-size: 14px;
+}
+.toolbar input[type="search"],
+.toolbar select {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 14px;
+}
+.toolbar input[type="search"] { min-width: 220px; }
+.toolbar button,
+.import {
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.toolbar button:hover,
+.import:hover { border-color: var(--accent); }
+.import input { font-size: 12px; max-width: 170px; }
+.check { display: flex; gap: 6px; align-items: center; }
+
+main { padding: 0 24px 24px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--bronze);
+  border-radius: 10px;
+  padding: 14px;
+}
+.card.grade-platinum { border-left-color: var(--platinum); }
+.card.grade-gold { border-left-color: var(--gold); }
+.card.grade-silver { border-left-color: var(--silver); }
+.card.earned { opacity: 0.72; }
+.card.earned h3 { text-decoration: line-through; }
+.card.missable { outline: 1px dashed var(--danger); outline-offset: -1px; }
+
+.card-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.card-head input { width: 18px; height: 18px; accent-color: var(--accent-2); }
+.grade-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #0f0b1c;
+  color: var(--gold);
+  border: 1px solid var(--line);
+}
+.grade-platinum .grade-badge { color: var(--platinum); }
+.grade-silver .grade-badge { color: var(--silver); }
+.grade-bronze .grade-badge { color: var(--bronze); }
+.missable-flag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--danger);
+}
+.hidden-tag {
+  font-size: 11px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+.card h3 { font-size: 17px; }
+.desc { margin: 4px 0 8px; color: #e8e2f0; }
+.tags { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.guide-link {
+  background: none;
+  border: none;
+  color: var(--accent-2);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.guide-link:hover { text-decoration: underline; }
+
+.empty-note {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  grid-column: 1 / -1;
+}
+
+.phase {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 0 0 14px;
+}
+.phase-goal { font-weight: 700; color: var(--accent-2); margin: 0 0 8px; }
+.phase-trophies { margin: 12px 0 0; padding-left: 4px; list-style: none; }
+.phase-trophies li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-top: 1px solid var(--line);
+}
+.phase-trophies li.done span { text-decoration: line-through; opacity: 0.7; }
+.phase-trophies input { width: 16px; height: 16px; accent-color: var(--accent-2); }
+
+.detail {
+  margin-top: 24px;
+  background: var(--panel-2);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 860px;
+}
+.detail-close {
+  float: right;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.detail h2 { margin-top: 8px; }
+.guide-text { font-size: 16px; }
+.sources { font-size: 14px; color: var(--muted); }
+.tick-button {
+  margin-top: 12px;
+  background: var(--accent-2);
+  color: #06231f;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+footer {
+  padding: 8px 24px 32px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+footer h2 { font-size: 18px; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 28px; }
+  .hero, .toolbar, main, footer { padding-left: 14px; padding-right: 14px; }
+}

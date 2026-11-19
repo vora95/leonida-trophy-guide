@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI platinum roadmap &amp; tracker</title>
+<meta name="description" content="A guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: a platinum roadmap in six phases, a missable-trophy warning, filters, a spoiler setting, and saved progress.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI · PlayStation 5 · 55 trophies</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="lede">The road to <strong>Vice Got a Price!</strong> in six phases — story first, strangers second,
+  then the world, the activities and the money. Every trophy with its official name, description
+  and grade, a guide in our own words, and the source each guide cites.</p>
+  <div class="progress" role="status">
+    <div class="progress-bar"><div id="progress-fill"></div></div>
+    <p id="progress-text">0 of 55 earned · 0% to the platinum</p>
+    <p id="grade-counts" class="muted">platinum 0/1 · gold 0/2 · silver 0/6 · bronze 0/46</p>
+  </div>
+  <p class="save-note">⚠ One trophy is reported missable: <strong>Positive Mental Attitude</strong> — meditate at the
+  Chapter 1 spot before that chapter ends. There is no mission replay, so keep a manual save at the
+  start of every chapter.</p>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Guide views">
+  <button type="button" class="tab" data-view="roadmap" role="tab" aria-selected="false">Roadmap to platinum</button>
+  <button type="button" class="tab" data-view="trophies" role="tab" aria-selected="true">All 55 trophies</button>
+  <button type="button" class="tab" data-view="missable" role="tab" aria-selected="false">Missable ⚠</button>
+</nav>
+
+<div class="toolbar">
+  <label>Search <input id="search" type="search" placeholder="Name, description or guide…" autocomplete="off"></label>
+  <label>Kind
+    <select id="kind-filter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectible">Collectibles</option>
+      <option value="activity">Activities</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="grade-filter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="check"><input id="hide-earned" type="checkbox"> Hide earned</label>
+  <label class="check"><input id="spoiler" type="checkbox" checked> Spoiler mode — hide story trophies until earned</label>
+  <button id="export" type="button">Export progress</button>
+  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+  <button id="reset" type="button">Reset</button>
+</div>
+
+<main>
+  <section id="view-roadmap" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="muted">Six phases, in order. Each phase lists its trophies — tick them off as you earn them.
+    The order is built from the official descriptions: story first, because every story trophy is
+    hidden and chapter-gated; the money last, when the robberies have filled the wallet.</p>
+    <div id="roadmap"></div>
+  </section>
+
+  <section id="view-trophies">
+    <h2>All 55 trophies</h2>
+    <p id="result-count" class="muted">55 of 55 trophies shown</p>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <section id="view-missable" hidden>
+    <h2>Missable trophies</h2>
+    <p class="muted">Launch-day reporting names one missable trophy. Everything else can be earned after the story.</p>
+    <div id="missable-list" class="grid"></div>
+  </section>
+
+  <div id="detail-slot"></div>
+</main>
+
+<footer>
+  <h2>Sources</h2>
+  <p>Names, descriptions and grades are the official PlayStation list, as mirrored by
+  <strong>Exophase</strong> and <strong>PSNProfiles</strong> on 18 Nov 2026 and cross-checked with
+  <strong>TrueAchievements</strong> (via planetgta6.com). The guides are this app's own words; where a
+  step comes from a community source it names it: <strong>Output Lag</strong> (launch-day list — no
+  mission replay, Chapter 1 meditation spot, unconfirmed methods), <strong>KeenGamer</strong> (roadmap —
+  18 meditation spots, ~200 hours), <strong>PowerPyx</strong> (cheats disable trophies). Steps with no
+  confirmed source at launch say so in the guide instead of guessing. All 55 trophies are
+  single-player; there are no online trophies.</p>
+  <p class="muted">Progress is saved in your browser (localStorage) and never leaves it. This guide is
+  unofficial and not affiliated with Rockstar Games or PlayStation.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
